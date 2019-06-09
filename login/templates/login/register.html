@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<div style="margin: 15% 40%">
+<h1>注册页面</h1>
+<form action="/register/" method="post">
+    {% csrf_token %}
+    {% if message %}
+      <p>  {{ message }}</p>
+    {% endif %}
+{% if register_form.captcha.errors %}
+      <p>  {{ register_form.captcha.errors }}</p>
+{% endif %}
+    <p>
+        {{ register_form.username.label_tag }}
+        {{ register_form.username }}
+    </p>
+    <p>
+        {{ register_form.password1.label_tag }}
+        {{ register_form.password1 }}
+    </p>
+    <p>
+        {{ register_form.password2.label_tag }}
+        {{ register_form.password2 }}
+    </p>
+    <p>
+        {{ register_form.email.label_tag }}
+        {{ register_form.email }}
+    </p>
+    <p>
+        {{ register_form.gender.label_tag }}
+        {{ register_form.gender }}
+    </p>
+    <p>
+        {{ register_form.captcha.label_tag }}
+        {{ register_form.captcha }}
+    </p>
+    <input type="submit" name="提交"/>
+    <input type="reset" name="重置"/>
+</form>
+</div>
+
+
+</body>
+</html>
